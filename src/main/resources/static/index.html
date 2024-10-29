@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Eventos SSE</title>
+</head>
+<body>
+<h1>Eventos SSE</h1>
+<div id="events"></div>
+
+<script>
+    const eventSource = new EventSource('/sse');
+    eventSource.onmessage = function(event) {
+        const eventDiv = document.getElementById('events');
+        eventDiv.innerHTML += `<p>${event.data}</p>`;
+    };
+</script>
+</body>
+</html>
